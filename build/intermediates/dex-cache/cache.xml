@@ -3,48 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/StanlyNg/StayAWhile/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/Users/Bas/Desktop/project2/untitled folder/StayAWhile/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.1"
+        sha1="63c4e373eb113c8941b9d6b986d23542359c4c2a">
+        <dex dex="/Users/Bas/Desktop/project2/untitled folder/StayAWhile/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_1ef01e6970b07db8b5915874a6a51c7301bbe4bd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Bas/Desktop/project2/untitled folder/StayAWhile/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="26.0.1"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/Users/StanlyNg/StayAWhile/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_8060601e6846e5f1ed105c5c8de6681e765b7081/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/StanlyNg/AndroidStudioProjects/StayAWhile/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/Users/StanlyNg/AndroidStudioProjects/StayAWhile/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_d8ce0d8b27d9f9ecb66ce0b88a4b9c4c400dd24b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/StanlyNg/.gradle/caches/modules-2/files-2.1/com.nostra13.universalimageloader/universal-image-loader/1.9.5/442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375/universal-image-loader-1.9.5.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
-        <dex dex="/Users/StanlyNg/StayAWhile/app/build/intermediates/transforms/dex/debug/folders/1000/10/universal-image-loader-1.9.5_6a5c836ddaf8fc8fff7f6e8e65968b0d34c64e5b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/StanlyNg/AndroidStudioProjects/StayAWhile/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="548a9d77059dc6ec77a04f92b20af6ce135d0232">
-        <dex dex="/Users/StanlyNg/AndroidStudioProjects/StayAWhile/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_512b26d79db168b807ec00e892dce211103a431c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/StanlyNg/StayAWhile/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="4bd5b6ec98ffa4354242c9012883a3eeb5cd1f02">
-        <dex dex="/Users/StanlyNg/StayAWhile/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_89358e494607e3c1c94914274c15ff3597738a6a/classes.dex" />
+        <dex dex="/Users/Bas/Desktop/project2/untitled folder/StayAWhile/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_88bf7fe4936f6c92500221de830e1e4e08e5618e/classes.dex" />
     </item>
 
 </items>
