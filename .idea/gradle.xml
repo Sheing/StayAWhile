@@ -9,7 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$USER_HOME$/Downloads/chat21-android-sdk-master/chat" />
+            <option value="$PROJECT_DIR$/../../../../../StanlyNg/Downloads/chat21-android-sdk-master/chat" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
