@@ -1,5 +1,6 @@
 package com.bulldogbeats.firebase.stayawhile_demo.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,7 +10,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bulldogbeats.firebase.stayawhile_demo.models.User;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +27,8 @@ import com.bulldogbeats.firebase.stayawhile_demo.PostDetailActivity;
 import com.bulldogbeats.firebase.stayawhile_demo.R;
 import com.bulldogbeats.firebase.stayawhile_demo.models.Post;
 import com.bulldogbeats.firebase.stayawhile_demo.viewholder.PostViewHolder;
+import com.google.firebase.database.ValueEventListener;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public abstract class PostListFragment extends Fragment {
 
@@ -36,7 +41,8 @@ public abstract class PostListFragment extends Fragment {
     private FirebaseRecyclerAdapter<Post, PostViewHolder> mAdapter;
     private RecyclerView mRecycler;
     private LinearLayoutManager mManager;
-
+    private ImageView mProfileImage;
+    private Context mContext;
     public PostListFragment() {}
 
     @Override
@@ -51,7 +57,23 @@ public abstract class PostListFragment extends Fragment {
 
         mRecycler = rootView.findViewById(R.id.messages_list);
         mRecycler.setHasFixedSize(true);
+        /*mProfileImage = (ImageView) rootView.findViewById(R.id.profile_image);
+        //get the users details who created the chatroom
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        Query query = reference.child(mContext.getString(R.string.dbnode_users))
+                .orderByKey()
+                .equalTo(getItem(position).getCreator_id());
 
+                for(DataSnapshot singleSnapshot:  dataSnapshot.getChildren()){
+                    Log.d(TAG, "onDataChange: Found chat room creator: "
+                            + singleSnapshot.getValue(User.class).toString());
+                    String createdBy = "created by " + singleSnapshot.getValue(User.class).getName();
+                    holder.creatorName.setText(createdBy);
+                    ImageLoader.getInstance().displayImage(
+                            singleSnapshot.getValue(User.class).getProfile_image() , holder.mProfileImage);
+                }
+
+*/
         return rootView;
     }
 

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ArrayAdapter;
 
 import com.bulldogbeats.firebase.stayawhile_demo.R;
 import com.bulldogbeats.firebase.stayawhile_demo.SignInActivity;
@@ -51,8 +52,8 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_chat);
-        mListView = (ListView) findViewById(R.id.listView);
+        setContentView(R.layout.activity_chat);
+        mListView = (ListView) findViewById(R.id.listView2);
         mFob = (FloatingActionButton) findViewById(R.id.fob);
 
         init();
@@ -63,19 +64,23 @@ public class ChatActivity extends AppCompatActivity {
 
         getChatrooms();
 
-        /*mFob.setOnClickListener(new View.OnClickListener() {
+        mFob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NewChatRoomDialog dialog = new NewChatRoomDialog();
                 dialog.show(getSupportFragmentManager(), getString(R.string.dialog_new_chatroom));
             }
-        });*/
+        });
 
     }
 
     private void setupChatroomList(){
         Log.d(TAG, "setupChatroomList: setting up chatroom listview");
+        Log.d(TAG, "Inside SETUP----->"+mChatrooms.toString());
         mAdapter = new ChatroomListAdapter(ChatActivity.this, R.layout.layout_chatroom_listitem, mChatrooms);
+        Log.d(TAG, "Inside SETUP----->"+mAdapter.getCount());
+        Log.d(TAG, "Inside SETUP----->"+mAdapter.getContext().toString());
+
         mListView.setAdapter(mAdapter);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -91,7 +96,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void getChatrooms(){
         Log.d(TAG, "getChatrooms: retrieving chatrooms from firebase database.");
-        mChatrooms = new ArrayList<>();
+        mChatrooms = new ArrayList<Chatroom>();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
 
         Query query = reference.child(getString(R.string.dbnode_chatrooms));
@@ -131,17 +136,7 @@ public class ChatActivity extends AppCompatActivity {
                     Log.d(TAG, "onDataChange: found chatroom: "+mChatrooms.size());
                     //setupChatroomList();
                 }
-                mAdapter = new ChatroomListAdapter(ChatActivity.this, R.layout.layout_chatroom_listitem, mChatrooms);
-                mListView.setAdapter(mAdapter);
-                mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Log.d(TAG, "onItemClick: selected chatroom: " + mChatrooms.get(i).toString());
-                        Intent intent = new Intent(ChatActivity.this, ChatroomActivity.class);
-                        intent.putExtra(getString(R.string.intent_chatroom), mChatrooms.get(i));
-                        startActivity(intent);
-                    }
-                });
+                setupChatroomList();
             }
 
             @Override

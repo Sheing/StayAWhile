@@ -89,13 +89,13 @@ public class  MainActivity extends BaseActivity {
         findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NewChatRoomDialog dialog = new NewChatRoomDialog();
-                dialog.show(getSupportFragmentManager(), "dialog_new_chatroom");
+                //NewChatRoomDialog dialog = new NewChatRoomDialog();
+                //dialog.show(getSupportFragmentManager(), "dialog_new_chatroom");
                 //for(int j = 0; j<=4; j++){
                     //if(mPagerAdapter.getPageTitle(j)!= "Chat Room") {
                         //startActivity(new Intent(MainActivity.this, NewPostActivity.class));
                     //}else{
-                     //   startActivity(new Intent(MainActivity.this, NewPostActivity.class));
+                        startActivity(new Intent(MainActivity.this, NewPostActivity.class));
                     //}
                 //}
 

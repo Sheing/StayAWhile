@@ -1,3 +1,1 @@
 include ':app'
-include ':chat'
-project(':chat').projectDir = new File('/Users/StanlyNg/Downloads/chat21-android-sdk-master/chat')

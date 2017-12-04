@@ -17,10 +17,10 @@ public class Chatroom implements Parcelable {
     private String chatroom_id;
     private List<ChatMessage> chatroom_messages;
 
-    public Chatroom(String chatroom_name, String creator_id, String security_level, String chatroom_id, List<ChatMessage> chatroom_messages) {
+    public Chatroom(String chatroom_name, String creator_id, String chatroom_id, List<ChatMessage> chatroom_messages) {
         this.chatroom_name = chatroom_name;
         this.creator_id = creator_id;
-        this.security_level = security_level;
+        //this.security_level = security_level;
         this.chatroom_id = chatroom_id;
         this.chatroom_messages = chatroom_messages;
     }

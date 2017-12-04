@@ -26,7 +26,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by StanlyNg on 12/3/17.
@@ -40,7 +40,7 @@ public class ChatroomListAdapter extends ArrayAdapter<Chatroom> {
     private Context mContext;
     private LayoutInflater mInflater;
 
-    public ChatroomListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Chatroom> objects) {
+    public ChatroomListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull List<Chatroom> objects) {
         super(context, resource, objects);
         mContext = context;
         mLayoutResource = resource;
