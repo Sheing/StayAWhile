@@ -26,7 +26,11 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    //Universal Image Loader
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
+    //Firebase Storage
+    compile 'com.google.firebase:firebase-storage:11.6.2'
 
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'

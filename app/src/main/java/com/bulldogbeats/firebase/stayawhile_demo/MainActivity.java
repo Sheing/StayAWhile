@@ -26,11 +26,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.bulldogbeats.firebase.stayawhile_demo.fragment.ChatFragment;
 import com.bulldogbeats.firebase.stayawhile_demo.fragment.MyPostsFragment;
 import com.bulldogbeats.firebase.stayawhile_demo.fragment.MyTopPostsFragment;
 import com.bulldogbeats.firebase.stayawhile_demo.fragment.RecentPostsFragment;
+import com.bulldogbeats.firebase.stayawhile_demo.utility.NewChatRoomDialog;
+import com.bulldogbeats.firebase.stayawhile_demo.utility.UniversalImageLoader;
+import com.bulldogbeats.firebase.stayawhile_demo.viewholder.ChatActivity;
+import com.bulldogbeats.firebase.stayawhile_demo.viewholder.SettingsActivity;
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 
 public class  MainActivity extends BaseActivity {
@@ -44,19 +49,21 @@ public class  MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        initImageLoader();
         // Create the adapter that will return a fragment for each section
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[]{
                     new RecentPostsFragment(),
                     new MyPostsFragment(),
                     new MyTopPostsFragment(),
+                    new ChatFragment(),
             };
 
             private final String[] mFragmentNames = new String[] {
                     getString(R.string.heading_recent),
                     getString(R.string.heading_my_posts),
-                    getString(R.string.heading_my_top_posts)
+                    getString(R.string.heading_my_top_posts),
+                    "Chat Room"
             };
             @Override
             public Fragment getItem(int position) {
@@ -70,6 +77,7 @@ public class  MainActivity extends BaseActivity {
             public CharSequence getPageTitle(int position) {
                 return mFragmentNames[position];
             }
+
         };
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.container);
@@ -81,7 +89,16 @@ public class  MainActivity extends BaseActivity {
         findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, NewPostActivity.class));
+                NewChatRoomDialog dialog = new NewChatRoomDialog();
+                dialog.show(getSupportFragmentManager(), "dialog_new_chatroom");
+                //for(int j = 0; j<=4; j++){
+                    //if(mPagerAdapter.getPageTitle(j)!= "Chat Room") {
+                        //startActivity(new Intent(MainActivity.this, NewPostActivity.class));
+                    //}else{
+                     //   startActivity(new Intent(MainActivity.this, NewPostActivity.class));
+                    //}
+                //}
+
             }
         });
     }
@@ -94,15 +111,34 @@ public class  MainActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int i = item.getItemId();
-        if (i == R.id.action_logout) {
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this, SignInActivity.class));
-            finish();
-            return true;
-        } else {
-            return super.onOptionsItemSelected(item);
-        }
+        Intent intent;
+        switch(item.getItemId()) {
+            case R.id.action_logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(this, SignInActivity.class));
+                finish();
+                return true;
+            case R.id.optionAccountSettings:
+                intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.optionChat:
+                intent = new Intent(MainActivity.this, ChatActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+            }
+    }
+
+
+
+    /**
+     * init universal image loader
+     */
+    private void initImageLoader(){
+        UniversalImageLoader imageLoader = new UniversalImageLoader(MainActivity.this);
+        ImageLoader.getInstance().init(imageLoader.getConfig());
     }
 
 }
